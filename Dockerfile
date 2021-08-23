@@ -1,5 +1,7 @@
 FROM ubuntu:focal
 
+ENV DEBIAN_FRONTEND="noninteractive" TZ="Europe/London"
+
 RUN apt-get clean && apt-get update \
     && apt-get install -y cron php-cli mysql-client netcat-openbsd wget curl bind9utils dnsutils composer php-xml php-json \
     && rm -rf /var/lib/apt/lists/*
