@@ -1,9 +1,7 @@
-FROM ubuntu:xenial
+FROM ubuntu:focal
 
-RUN echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main" >> /etc/apt/sources.list \
-    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C \
-    && apt-get clean && apt-get update \
-    && apt-get install -y cron php7.1-cli mysql-client netcat-openbsd wget curl bind9utils dnsutils composer php7.1-xml php7.1-json \
+RUN apt-get clean && apt-get update \
+    && apt-get install -y cron php-cli mysql-client netcat-openbsd wget curl bind9utils dnsutils composer php-xml php-json \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkfifo --mode 0666 /var/log/cron.log
